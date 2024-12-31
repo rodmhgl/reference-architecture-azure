@@ -1,0 +1,89 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+  "name": "Ubuntu",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/rjfmachado/devcontainer-features/cloud-native:1": {},
+    "ghcr.io/devcontainers/features/terraform:1": {
+      "installSentinel": true,
+      "installTFsec": true,
+      "installTerraformDocs": true,
+      "version": "latest",
+      "tflint": "latest",
+      "terragrunt": "latest"
+    },
+    "ghcr.io/git-saj/devcontainer-features/terratag:1": {},
+    "ghcr.io/devcontainers-extra/features/act:1": {},
+    "ghcr.io/larsnieuwenhuizen/features/jqyq": {},
+    "ghcr.io/devcontainers-extra/features/infracost:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers-extra/features/pre-commit:2": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "installDirectlyFromGitHubRelease": true,
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/aws-cli:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/azure-cli:1": {
+      "installBicep": true,
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "amazonwebservices.aws-toolkit-vscode",
+        "ms-azuretools.vscode-azureresourcegroups",
+        "github.copilot",
+        "github.copilot-chat",
+        "eamodio.gitlens",
+        "aaron-bond.better-comments",
+        "aws-scripting-guy.cform",
+        "ms-vscode-remote.remote-containers",
+        "github.codespaces",
+        "golang.go",
+        "hashicorp.terraform",
+        "foxundermoon.shell-format",
+        "redhat.vscode-yaml",
+        "github.vscode-github-actions",
+        "parthr2031.colorful-comments",
+        "monokai.theme-monokai-pro-vscode"
+      ],
+      
+      "settings": {
+        "aws.telemetry": false,
+        "editor.formatOnSave": true,
+        "editor.suggest.insertMode": "replace",
+        "editor.tabSize": 2,
+        "editor.fontSize": 24,
+        "editor.rulers": [
+          80
+        ],
+        "git.autofetch": true,
+        "editor.defaultFormatter": "foxundermoon.shell-format",
+        "terminal.integrated.fontSize": 24,
+        "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+        "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+        "[yaml]": {
+          "editor.defaultFormatter": "redhat.vscode-yaml"
+        }
+      }
+    }
+  },
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "pre-commit install"
+  // Configure tool-specific properties.
+  // "customizations": {},
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
