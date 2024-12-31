@@ -1,9 +1,8 @@
-
 # Name for the AKS cluster
-cluster_name = "ref-arch"
+cluster_name = "rnref-arch"
 
 # Name for Azure Container Registry
-container_registry_name_prefix = "humrefarch"
+container_registry_name_prefix = "rnhumrefarch"
 
 # Name of the environment to be deployed into
 environment = "development"
@@ -18,10 +17,10 @@ ingress_nginx_min_unavailable = 1
 ingress_nginx_replica_count = 2
 
 # Azure region to deploy into
-location = ""
+location = "eastus2"
 
 # Name of the resource group to create
-resource_group_name = "ref-arch"
+resource_group_name = "rnref-arch"
 
 # Azure Subscription (ID) to use
 subscription_id = ""
